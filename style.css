@@ -2,8 +2,7 @@
 
 a {
     text-decoration: none;
-    
-    cursor:url(images/rock-n-roll-gesture-outlined-hand-symbol_icon-icons.com_57977.ico), pointer ;
+    cursor: url(images/cursor.cur),auto;
 }   
 .logo {
     height: 2em;
