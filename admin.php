@@ -1,3 +1,14 @@
+<?php
+session_start();
+// Vérifiez si l'utilisateur est connecté, sinon redirigez-le vers la page de connexion
+if (!isset($_SESSION["nom"])) {
+    header("Location:template/loginAdmin.php");
+    exit();
+}
+require('database.php');
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +23,7 @@
 
 <body>
     <main>
-    <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px; height:929px">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
             <svg class="bi pe-none me-2" width="40" height="32">
               
@@ -26,7 +37,7 @@
                     <svg class="bi pe-none me-2" width="16" height="16">
                         <use xlink:href="#home"></use>
                     </svg>
-                    Home
+                    Catégories/sous-catégories
                 </a>
             </li>
             <li>
@@ -34,17 +45,10 @@
                     <svg class="bi pe-none me-2" width="16" height="16">
                         <use xlink:href="#speedometer2"></use>
                     </svg>
-                    Dashboard
+                    Options
                 </a>
             </li>
-            <li>
-                <a href="#" class="nav-link text-white">
-                    <svg class="bi pe-none me-2" width="16" height="16">
-                        <use xlink:href="#table"></use>
-                    </svg>
-                    Orders
-                </a>
-            </li>
+           
             <li>
                 <a href="#" class="nav-link text-white">
                     <svg class="bi pe-none me-2" width="16" height="16">
@@ -53,29 +57,22 @@
                     Products
                 </a>
             </li>
-            <li>
-                <a href="#" class="nav-link text-white">
-                    <svg class="bi pe-none me-2" width="16" height="16">
-                        <use xlink:href="#people-circle"></use>
-                    </svg>
-                    Customers
-                </a>
-            </li>
+          
         </ul>
         <hr>
         <div class="dropdown">
             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="" alt="" width="32" height="32" class="rounded-circle me-2">
-                <strong>mdo</strong>
+                <strong><?php echo $_SESSION['nom']; ?></strong>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                <li><a class="dropdown-item" href="#">New project...</a></li>
+                <li><a class="dropdown-item" href="template/adAdmin.php">Ad admin</a></li>
                 <li><a class="dropdown-item" href="#">Settings</a></li>
                 <li><a class="dropdown-item" href="#">Profile</a></li>
                 <li>
                     <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="#">Sign out</a></li>
+                <li><a class="dropdown-item" href="model/adminLogout.php">Sign out</a></li>
             </ul>
         </div>
     </div>
