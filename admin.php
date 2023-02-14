@@ -28,7 +28,7 @@ require('database.php');
                 <svg class="bi pe-none me-2" width="40" height="32">
 
                 </svg>
-                <span class="fs-4">Menu</span>
+                <span class="fs-4"><i class="bi bi-house"></i></span>
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
@@ -37,7 +37,7 @@ require('database.php');
                         <svg class="bi pe-none me-2" width="16" height="16">
                             <use xlink:href="#home"></use>
                         </svg>
-                        Catégories/sous-catégories
+                        Catégories / <br>sous-catégories
                     </a>
                 </li>
                 <li>
@@ -66,7 +66,7 @@ require('database.php');
                     <strong><?php echo $_SESSION['nom']; ?></strong>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                    <li><a class="dropdown-item" href="template/adAdmin.php">Ad admin</a></li>
+                    <li><a class="dropdown-item" href="template/adAdmin.php">Add admin</a></li>
 
 
                     <li>
