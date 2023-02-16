@@ -115,7 +115,7 @@
     }
 
     .password-icon {
-
+        
 
         position: absolute;
 

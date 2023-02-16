@@ -1,12 +1,30 @@
 <?php
 session_start();
-// Vérifiez si l'utilisateur est connecté, sinon redirigez-le vers la page de connexion
+
 if (!isset($_SESSION["nom"])) {
     header("Location:template/loginAdmin.php");
     exit();
 }
 require('database.php');
 
+if (isset($_GET['page'])) {
+    $page = strval($_GET['page']);
+    if ($page == 'admin') {
+        $page_inc = "admin.php";
+    } elseif ($page == 'categories') {
+        $page_inc = "template/categories.php";
+    } elseif ($page == 'subCategories') {
+        $page_inc = "template/subCategories.php";
+    } elseif ($page == 'adCategories') {
+        $page_inc = "template/adCategories.php";
+    } elseif ($page == 'adSubCategories') {
+        $page_inc = "template/adSubCategories.php";
+    } else {
+        $page_inc = "template/categories.php";
+    }
+} else {
+    $page_inc = "template/categories.php";
+}
 
 ?>
 <!DOCTYPE html>
@@ -23,27 +41,28 @@ require('database.php');
 
 <body>
     <main>
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px; height:929px">
-            <a href="" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                <svg class="bi pe-none me-2" width="40" height="32">
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark position-absolute " style="width: 280px; height:929px">
+            <a href="admin" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <svg class="bi pe-none me-2 " width="40" height="32">
 
                 </svg>
-                <span class="fs-4"><i class="bi bi-house"></i></span>
+                <span class="fs-4 ms-4"><i class="bi bi-house"></i></span>
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
-                    <a href="#" class="nav-link active" aria-current="page">
+                    <a href="admin.php?page=categories" class="nav-link text-white" aria-current="page">
                         <svg class="bi pe-none me-2" width="16" height="16">
-                            <use xlink:href="#home"></use>
+                       
                         </svg>
-                        Catégories / <br>sous-catégories
+                        Catégories
                     </a>
                 </li>
+
                 <li>
                     <a href="#" class="nav-link text-white">
                         <svg class="bi pe-none me-2" width="16" height="16">
-                            <use xlink:href="#speedometer2"></use>
+                          
                         </svg>
                         Options
                     </a>
@@ -52,7 +71,7 @@ require('database.php');
                 <li>
                     <a href="#" class="nav-link text-white">
                         <svg class="bi pe-none me-2" width="16" height="16">
-                            <use xlink:href="#grid"></use>
+                         
                         </svg>
                         Products
                     </a>
@@ -72,10 +91,13 @@ require('database.php');
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="model/adminLogout.php">Sign out</a></li>
+                    <li><a class="dropdown-item" href="model/adminLogout.php">Log out</a></li>
                 </ul>
             </div>
         </div>
+        <?php
+        include("$page_inc");
+        ?>
     </main>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
