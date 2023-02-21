@@ -1,5 +1,6 @@
 <?php
 require('../database.php');
+$db= dbconnect();
 $id = $_GET['id'];
 $query = 'DELETE FROM sub_categories WHERE id=:id'; 
 $req = $db->prepare($query);

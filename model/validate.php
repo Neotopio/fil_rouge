@@ -4,7 +4,7 @@ require('../database.php');
 
    
 
-  
+  $db=dbconnect();
 
 
 

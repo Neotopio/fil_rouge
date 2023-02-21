@@ -1,21 +1,8 @@
 <?php
-require("../database.php");
-$nom = "";
+require_once('database.php');
 
-
-$req = '';
-
-
-if (
-    (!isset($_POST['sub_categories']) || empty($_POST['sub_categories']))
-    || (!isset($_POST['subCategoriesCategories']) || empty($_POST['subCategoriesCategories']))
-       
-) {
-} else {
-    $nom = strip_tags($_POST['sub_categories']);
-  
-    $id_categories = strip_tags($_POST['subCategoriesCategories']);
-    echo 'les information sont envoyer';
+function adSubCat($nom,$id_categories){
+    $db=dbconnect();
     $query = 'INSERT INTO sub_categories(name,id_categories) VALUES (:nom,:id_categories)';
     $req = $db->prepare($query);
     $req->bindValue(':nom', $nom, PDO::PARAM_STR);
@@ -24,3 +11,5 @@ if (
     $req->execute();
     header('location: ../admin.php');
 }
+
+

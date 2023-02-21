@@ -1,19 +1,5 @@
-<?php
 
-
-
-$id=$_GET["id"];
-
-$sqlQuery = 'SELECT * FROM categories INNER JOIN sub_categories ON id_categories= categories.id WHERE categories.id = :id';
-$subCategories = $db->prepare($sqlQuery);
-$subCategories->bindValue(':id', $id, PDO::PARAM_INT);
-
-$subCategories->execute();
-$subs = $subCategories->fetchAll();
-
-
-?>
-
+<?php ob_start(); ?>
 <main class="container">
     <div class="row">
         <section class="col-12">
@@ -51,7 +37,6 @@ $subs = $subCategories->fetchAll();
         </section>
     </div>
 
-</main>
-</body>
+    <?php $content = ob_get_clean(); ?>
 
-</html>
+<?php require('layout.php') ?>

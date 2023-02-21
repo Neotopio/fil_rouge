@@ -1,33 +1,15 @@
 <?php
-require("../database.php");
-$nom = "";
-
-
-$req = '';
+require_once('database.php');
 
 
 
 
-
-if (
-    (!isset($_POST['categories']) || empty($_POST['categories']))
-   
-
-
-
-) {
-} else {
-    $nom = strip_tags($_POST['categories']);
-  
-    echo 'les information sont envoyer';
+function adCat($categories)
+{
+    $db = dbconnect();
+    $nom = strip_tags($categories);
     $query = 'INSERT INTO categories(name) VALUES (:nom)';
     $req = $db->prepare($query);
     $req->bindValue(':nom', $nom, PDO::PARAM_STR);
- 
     $req->execute();
-    header('location: ../admin.php');
 }
-
-
-
-
