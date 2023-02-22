@@ -31,16 +31,24 @@
                 </li>
 
                 <li>
-                    <a href="#" class="nav-link text-white">
+                    <a href="admin.php?page=colors" class="nav-link text-white">
                         <svg class="bi pe-none me-2" width="16" height="16">
                           
                         </svg>
-                        Options
+                        Couleurs
+                    </a>
+                </li>
+                <li>
+                    <a href="admin.php?page=sizes" class="nav-link text-white">
+                        <svg class="bi pe-none me-2" width="16" height="16">
+                          
+                        </svg>
+                        Taille
                     </a>
                 </li>
 
                 <li>
-                    <a href="#" class="nav-link text-white">
+                    <a href="admin.php?page=products" class="nav-link text-white">
                         <svg class="bi pe-none me-2" width="16" height="16">
                          
                         </svg>

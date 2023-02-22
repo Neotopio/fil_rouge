@@ -21,7 +21,7 @@
                             <td><?= $sub['name'] ?></td>
 
                             <td class="action">
-                                <a href="admin.php?page=modificationCategorie&id=<?php echo $sub['id'] ?>"> <button class="btn btn-primary" type="submit"> Modifier</button></a>
+                                <a href="admin.php?page=updateSubCategories&id=<?php echo $sub['id'] ?>"> <button class="btn btn-primary" type="submit"> Modifier</button></a>
                             </td>
 
                             <td class="action">

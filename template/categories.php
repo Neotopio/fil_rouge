@@ -21,7 +21,7 @@
                             <td><?= $categorie['name'] ?></td>
 
                             <td class="action">
-                                <a href="admin.php?page=modificationCategorie&id=<?php echo $categorie['id'] ?>"> <button class="btn btn-primary" type="submit"> Modifier</button></a>
+                                <a href="admin.php?page=updateCategories&id=<?php echo $categorie['id'] ?>"> <button class="btn btn-primary" type="submit"> Modifier</button></a>
                             </td>
                             <td class="action">
                                 <a href="admin.php?page=subCategories&id=<?php echo $categorie['id'] ?>"> <button class="btn btn-primary" type="submit"> Voir sous-catégories</button></a>

@@ -2,6 +2,7 @@
 require_once('model/vueSubCategories.php');
 require_once('model/vueCategories.php');
 require_once('model/subCategories.php');
+require_once('model/updateSubCategories.php');
 
 
 function vueSubCategories($id)
@@ -32,3 +33,7 @@ if (
     $id_categories = strip_tags($_POST['subCategoriesCategories']);
     adSubCategories($nom, $id_categories);
 }
+function vueUpdateSubCategories($id){
+    $nomTitre= subCategoriesVue($id);
+    require('template/updateSubCategories.php');
+ }
