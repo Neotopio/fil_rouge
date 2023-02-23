@@ -21,6 +21,14 @@
                 ?>
             </select>
         </div>
+        <div class="mb-3">
+            <label for="enable" class="form-label">Active</label>
+            <select name="enable" id="">
+                <option value="1">Oui</option>
+                <option value="0">Non</option>
+            </select>
+           
+        </div>
 
                 <div class="mb-3 col-3">
                     <button type="submit" class="btn btn-primary" name="submit">Valider</button>

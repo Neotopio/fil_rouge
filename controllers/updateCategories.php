@@ -9,6 +9,6 @@ function dbUpdateCategories($a,$b,$c)
 if (isset($_POST['nom'])) {
     $a= $_POST['nom'];
     $b=$_POST['enable'];
-    $c=$_GET['id'];
+    $c=$_POST['id'];
     dbUpdateCategories($a,$b,$c);
 }

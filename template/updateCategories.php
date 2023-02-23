@@ -19,7 +19,7 @@
            
         </div>
 
-       
+       <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
         <div class="mb-3 col-3">
             <button type="submit" class="btn btn-primary" name="submit">Valider</button>
         </div>

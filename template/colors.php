@@ -21,7 +21,7 @@
                             <td><?= $color['color'] ?></td>
 
                             <td class="action">
-                                <a href="admin.php?page=updateColores&id=<?php echo $color['id'] ?>"> <button class="btn btn-primary" type="submit"> Modifier</button></a>
+                                <a href="admin.php?page=updateColors&id=<?php echo $color['id'] ?>"> <button class="btn btn-primary" type="submit"> Modifier</button></a>
                             </td>
                             
                             <td class="action">

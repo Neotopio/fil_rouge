@@ -6,13 +6,14 @@ function vueAdCategories()
     require('template/adCategories.php');
 }
 
-function adCategories($categories)
+function adCategories($categories,$enable)
 {
 
-    adCat($categories);
+    adCat($categories,$enable);
     header("location:admin.php");
 }
 if (isset($_POST['categories'])) {
     $categories = $_POST['categories'];
-    adCategories($categories);
+    $enable=$_POST['enable'];
+    adCategories($categories,$enable);
 }

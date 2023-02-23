@@ -13,6 +13,8 @@ require_once('controllers/colors.php');
 require_once('controllers/sizes.php');
 require_once('controllers/adColors.php');
 require_once('controllers/adSizes.php');
+require_once('controllers/products.php');
+require_once('controllers/adProducts.php');
 
 if (isset($_GET['page'])) {
     $page = strval($_GET['page']);
@@ -39,7 +41,16 @@ if (isset($_GET['page'])) {
     }elseif ($page == 'adSizes') {
         vueAdSizes();
     }
-   
+    elseif ($page == 'updateColors') {
+        updateColorsVue($_GET['id']);
+    } elseif ($page == 'updateSizes') {
+        updateSizesVue($_GET['id']);
+    }elseif ($page == 'products') {
+        products();
+    }
+    elseif ($page == 'adProducts') {
+       vueAdProducts();
+    }
     else {
         vueCategories();
     }

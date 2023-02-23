@@ -6,13 +6,14 @@ function vueAdColors()
     require('template/adColors.php');
 }
 
-function adColors($colors)
+function adColors($colors,$enable)
 {
 
-    adColor($colors);
+    adColor($colors,$enable);
     header("location:admin.php?page=colors");
 }
 if (isset($_POST['colors'])) {
     $colors = $_POST['colors'];
-    adColors($colors);
+    $enable = $_POST['enable'];
+    adColors($colors,$enable);
 }

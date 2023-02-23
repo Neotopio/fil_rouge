@@ -17,9 +17,9 @@ function vueAdSubCategories()
     require('template/adSubCategories.php');
 }
 
-function adSubCategories($nom, $id_categories)
+function adSubCategories($nom, $id_categories,$enable)
 {
-    adSubCat($nom, $id_categories);
+    adSubCat($nom, $id_categories,$enable);
     header('location:admin.php');
 }
 
@@ -29,9 +29,9 @@ if (
 
 ) {
     $nom = strip_tags($_POST['sub_categories']);
-
+    $enable = strip_tags($_POST['enable']);
     $id_categories = strip_tags($_POST['subCategoriesCategories']);
-    adSubCategories($nom, $id_categories);
+    adSubCategories($nom, $id_categories,$enable);
 }
 function vueUpdateSubCategories($id){
     $nomTitre= subCategoriesVue($id);
