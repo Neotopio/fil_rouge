@@ -1,14 +1,15 @@
 <?php
 
 require_once('model/vueCategories.php');
-require_once('model/subCategories.php');
+
+require_once('model/colors.php');
+require_once('model/sizes.php');
 
 function vueAdProducts()
 {
-    if(isset ($_GET['id']) ) {
-        $id=$_GET['id'];
-        $sousCategories = subCategories($id);
-        }
+    $sizes=size();
+    $colors=color();
     $categories = categories();
     require('template/adProducts.php');
-}
+} 
+
