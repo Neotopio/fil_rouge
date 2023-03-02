@@ -7,14 +7,14 @@
     <div class="row">
         <section class="col-12">
             <h1>SAISIE DES PRODUITS</h1>
-            <form action="model/adProducts.php" method="POST" class="row my-5" enctype="multipart/form-data">
+            <form action="controllers/saveProducts.php" method="POST" class="row my-5" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="nom" class="form-label">Nom</label>
                     <input type="text" class="form-control" name="name">
                 </div>
                 <div class="form-floating">
 
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name=></textarea>
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name='description'></textarea>
                     <label for="floatingTextarea2">Déscription</label>
                 </div>
                 <div class="mb-3">
@@ -50,7 +50,7 @@
                     foreach ($colors as $color) {
                     ?>
                         <div class="mb-3">
-                            <input class="form-check-input mt-0" type="checkbox" name="color" id="<?= $color['color'] ?>"  value="<?= $color['id'] ?>">
+                            <input class="form-check-input mt-0" type="checkbox" name="color[]" id="<?= $color['color'] ?>"  value="<?= $color['id'] ?>">
                             <label for="<?= $color['color'] ?>" class="form-label"><?= $color['color'] ?></label>
 
 
@@ -65,7 +65,7 @@
                     foreach ($sizes as $size) {
                     ?>
                         <div class="mb-3">
-                            <input class="form-check-input mt-0" type="checkbox" name="color" id="<?= $size['size'] ?>" value="<?= $size['id'] ?>">
+                            <input class="form-check-input mt-0" type="checkbox" name="size[]" id="<?= $size['size'] ?>" value="<?= $size['id'] ?>">
                             <label for="<?= $size['size'] ?>" class="form-label"><?= $size['size'] ?></label>
 
 
