@@ -1,15 +1,17 @@
 <?php
-require('../database.php');
 
+require('../database.php');
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
+    $idPicture =  getIdPicture($id);
     deleteProductsPicture($id);
     deleteOptions($id);
     deletePictures($id);
     deleteProducts($id);
 }
-function deletePictures($id)
+
+function getIdPicture($id)
 {
     $db = dbconnect();
     $query = 'SELECT id_picture FROM products_pictures WHERE id_product = :id';
@@ -17,6 +19,12 @@ function deletePictures($id)
     $req->bindValue(':id', $id, PDO::PARAM_INT);
     $req->execute();
     $dels = $req->fetchAll();
+    return $dels;
+}
+function deletePictures($idPicture)
+{
+    $dels = $idPicture;
+    $db = dbconnect();
 
     foreach ($dels as $del) {
 
@@ -28,7 +36,7 @@ function deletePictures($id)
 
         foreach ($pictures as $value) {
 
-            unlink('../'.$value['chemin']);
+            unlink('../' . $value['chemin']);
             $delPicture = 'DELETE FROM pictures WHERE id = :id';
             $pic = $db->prepare($delPicture);
             $pic->bindValue(':id', $value['id'], PDO::PARAM_INT);
@@ -39,7 +47,7 @@ function deletePictures($id)
 function deleteProductsPicture($id)
 {
     $db = dbconnect();
-    $query = 'DELETE FROM products_picture WHERE id_products=:id';
+    $query = 'DELETE FROM products_pictures WHERE id_product=:id';
     $req = $db->prepare($query);
     $req->bindValue(':id', $id, PDO::PARAM_INT);
     $req->execute();
@@ -48,7 +56,7 @@ function deleteProductsPicture($id)
 function deleteOptions($id)
 {
     $db = dbconnect();
-    $query = 'DELETE FROM options WHERE id_products=:id';
+    $query = 'DELETE FROM options WHERE id_product=:id';
     $req = $db->prepare($query);
     $req->bindValue(':id', $id, PDO::PARAM_INT);
     $req->execute();
