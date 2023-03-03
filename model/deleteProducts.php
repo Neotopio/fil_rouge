@@ -3,11 +3,12 @@
 require('../database.php');
 
 if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+    $id = intval($_GET['id']);
     $idPicture =  getIdPicture($id);
+    var_dump($idPicture);
     deleteProductsPicture($id);
     deleteOptions($id);
-    deletePictures($id);
+    deletePictures($idPicture);
     deleteProducts($id);
 }
 
@@ -18,31 +19,34 @@ function getIdPicture($id)
     $req = $db->prepare($query);
     $req->bindValue(':id', $id, PDO::PARAM_INT);
     $req->execute();
-    $dels = $req->fetchAll();
+    $dels = $req->fetchAll(PDO::FETCH_ASSOC);
     return $dels;
 }
 function deletePictures($idPicture)
 {
     $dels = $idPicture;
     $db = dbconnect();
-
-    foreach ($dels as $del) {
-
-        $pict = 'SELECT * FROM pictures WHERE id = :id';
-        $picture = $db->prepare($pict);
-        $picture->bindValue(':id', $del, PDO::PARAM_INT);
-        $picture->execute();
-        $pictures = $picture->fetchAll();
-
-        foreach ($pictures as $value) {
-
-            unlink('../' . $value['chemin']);
-            $delPicture = 'DELETE FROM pictures WHERE id = :id';
-            $pic = $db->prepare($delPicture);
-            $pic->bindValue(':id', $value['id'], PDO::PARAM_INT);
-            $pic->execute();
+    var_dump($dels);
+    foreach($dels as $val) {
+        foreach ($val as $del) {
+            var_dump($del);
+            $pict = 'SELECT * FROM pictures WHERE id='.$del.'';
+            $picture = $db->prepare($pict);
+        // $picture->bindValue(':id', $del, PDO::PARAM_INT);
+            $picture->execute();
+            var_dump($picture);
+            
+            while ($value = $picture->fetch(PDO::FETCH_ASSOC)) {
+                var_dump($value);
+                unlink('../' . $value['chemin']);
+                $delPicture = 'DELETE FROM pictures WHERE id=:id';
+                $pic = $db->prepare($delPicture);
+                $pic->bindValue(':id', $value['id'], PDO::PARAM_INT);
+                $pic->execute();
+            }
         }
     }
+        
 }
 function deleteProductsPicture($id)
 {
@@ -71,5 +75,5 @@ function deleteProducts($id)
     $req = $db->prepare($query);
     $req->bindValue(':id', $id, PDO::PARAM_INT);
     $req->execute();
-    header("location: ../admin.php?page=products");
+    //header("location: ../admin.php?page=products");
 }
