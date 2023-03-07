@@ -27,7 +27,7 @@
                             </td>
                            
                             <td class="action">
-                                <form action="model/deleteProducts.php" method="get"><input type="hidden" name='id' value="<?php echo $product['id']; ?>"> <button class="btn btn-danger" type="submit" onclick="return(confirm('Voulez-vous supprimer cette entrée ?'));"> Supprimer</button> </form>
+                                <form action="controllers/deleteProducts.php" method="get"><input type="hidden" name='id' value="<?php echo $product['id']; ?>"> <button class="btn btn-danger" type="submit" onclick="return(confirm('Voulez-vous supprimer cette entrée ?'));"> Supprimer</button> </form>
                             </td>
                         </tr>
                     <?php

@@ -16,6 +16,7 @@ require_once('controllers/adSizes.php');
 require_once('controllers/products.php');
 require_once('controllers/adProducts.php');
 
+
 if (isset($_GET['page'])) {
     $page = strval($_GET['page']);
     if ($page == 'categories') {
@@ -51,6 +52,9 @@ if (isset($_GET['page'])) {
     elseif ($page == 'adProducts') {
        vueAdProducts();
     }
+    elseif ($page == 'updateProducts') {
+        updateProductsVue($_GET['id']);
+     }
     else {
         vueCategories();
     }

@@ -2,15 +2,6 @@
 
 require('../database.php');
 
-if (isset($_GET['id'])) {
-    $id = intval($_GET['id']);
-    $idPicture =  getIdPicture($id);
-    var_dump($idPicture);
-    deleteProductsPicture($id);
-    deleteOptions($id);
-    deletePictures($idPicture);
-    deleteProducts($id);
-}
 
 function getIdPicture($id)
 {
@@ -26,16 +17,16 @@ function deletePictures($idPicture)
 {
     $dels = $idPicture;
     $db = dbconnect();
-    var_dump($dels);
-    foreach($dels as $val) {
+
+    foreach ($dels as $val) {
         foreach ($val as $del) {
             var_dump($del);
-            $pict = 'SELECT * FROM pictures WHERE id='.$del.'';
+            $pict = 'SELECT * FROM pictures WHERE id=' . $del . '';
             $picture = $db->prepare($pict);
-        // $picture->bindValue(':id', $del, PDO::PARAM_INT);
+            // $picture->bindValue(':id', $del, PDO::PARAM_INT);
             $picture->execute();
-            var_dump($picture);
-            
+
+
             while ($value = $picture->fetch(PDO::FETCH_ASSOC)) {
                 var_dump($value);
                 unlink('../' . $value['chemin']);
@@ -46,7 +37,6 @@ function deletePictures($idPicture)
             }
         }
     }
-        
 }
 function deleteProductsPicture($id)
 {
@@ -75,5 +65,23 @@ function deleteProducts($id)
     $req = $db->prepare($query);
     $req->bindValue(':id', $id, PDO::PARAM_INT);
     $req->execute();
-    //header("location: ../admin.php?page=products");
+    header("location: ../admin.php?page=products");
+}
+function deleteProductsPictureOnly($id)
+{
+    $db = dbconnect();
+    $query = 'DELETE FROM products_pictures WHERE id_picture=:id';
+    $req = $db->prepare($query);
+    $req->bindValue(':id', $id, PDO::PARAM_INT);
+    $req->execute();
+}
+
+function deletePicturesOnly($idPicture)
+{
+    $dels = $idPicture;
+    $db = dbconnect();
+    $delPicture = 'DELETE FROM pictures WHERE id=:id';
+    $pic = $db->prepare($delPicture);
+    $pic->bindValue(':id', $dels, PDO::PARAM_INT);
+    $pic->execute();
 }

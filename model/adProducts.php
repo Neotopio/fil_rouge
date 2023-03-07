@@ -27,33 +27,33 @@ function adPicturesProducts()
 
     $db = dbconnect();
     foreach ($files as $file) {
-
         if ($file['size'] <= 1000000) {
-
             $fileInfo = pathinfo($file['name']);
             $extension = $fileInfo['extension'];
             $allowedExtensions = ['jpg', 'jpeg', 'gif', 'png'];
             if (in_array($extension, $allowedExtensions)) {
-
+               
                 move_uploaded_file($file['tmp_name'], '../uploads/' . basename($file['name']));
                 $screenshot = 'uploads/' . basename($file['name']);
-                echo "L'envoi a bien été effectué !";
-                $query = 'INSERT INTO pictures(chemin,name) VALUES (:chemin,:nom)';
-                $req = $db->prepare($query);
-                $req->bindValue(':chemin', $screenshot, PDO::PARAM_STR);
-                $req->bindValue(':nom', basename($file['name']), PDO::PARAM_STR);
-                $req->execute();
+         
+                $query = 'INSERT INTO pictures (chemin,name) VALUES (:chemin,:nom)';
+                $pic = $db->prepare($query);
+               
+                $pic->bindValue(':chemin', $screenshot, PDO::PARAM_STR);
+                $pic->bindValue(':nom', basename($file['name']), PDO::PARAM_STR);
+                $pic->execute();
+  
 
 
                 $idProducts = getLastIdProducts();
                 $idPictures = getLastIdPicture();
 
 
-                $insert = 'INSERT INTO products_pictures(id_product,id_picture) VALUES (:id_products,:id_pictures)';
-                $query = $db->prepare($insert);
-                $query->bindValue(':id_products', $idProducts, PDO::PARAM_INT);
-                $query->bindValue(':id_pictures', $idPictures, PDO::PARAM_INT);
-                $query->execute();
+                $insert = 'INSERT INTO products_pictures (id_product,id_picture) VALUES (:id_products,:id_pictures)';
+                $pro = $db->prepare($insert);
+                $pro->bindValue(':id_products', $idProducts, PDO::PARAM_INT);
+                $pro->bindValue(':id_pictures', $idPictures, PDO::PARAM_INT);
+                $pro->execute();
             } else {
                 echo 'Le format du fichier n\'est pas autorisé. Merci de n\'envoyer que des fichiers .jpg, .jpeg, .png ou .gif';
 
