@@ -20,7 +20,7 @@ function deletePictures($idPicture)
 
     foreach ($dels as $val) {
         foreach ($val as $del) {
-            var_dump($del);
+          
             $pict = 'SELECT * FROM pictures WHERE id=' . $del . '';
             $picture = $db->prepare($pict);
             // $picture->bindValue(':id', $del, PDO::PARAM_INT);
@@ -28,7 +28,7 @@ function deletePictures($idPicture)
 
 
             while ($value = $picture->fetch(PDO::FETCH_ASSOC)) {
-                var_dump($value);
+               
                 unlink('../' . $value['chemin']);
                 $delPicture = 'DELETE FROM pictures WHERE id=:id';
                 $pic = $db->prepare($delPicture);
