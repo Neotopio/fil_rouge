@@ -64,8 +64,8 @@
                                             foreach ($photos as $photo) {
                                             ?>
                                                 <div class="col-2">
-                                                    <div class="card " >
-                                                        <img src="<?= $photo['chemin'] ?>"  class="img-fluid">
+                                                    <div class="card ">
+                                                        <img src="<?= $photo['chemin'] ?>" class="img-fluid">
                                                         <div class="card-body">
 
                                                             <a href="controllers/deletePictures.php?id=<?php echo $photo['id']; ?>" onclick="return(confirm('Voulez-vous supprimer cette entrée ?'));"> Supprimer</a>
@@ -101,7 +101,14 @@
                                                 foreach ($colors as $color) {
                                                 ?>
                                                     <div class="mb-3">
-                                                        <input class="form-check-input mt-0" type="checkbox" name="color[]" id="<?= $color['color'] ?>" value="<?= $color['id'] ?>">
+                                                        <input class="form-check-input mt-0" <?php foreach ($options as $option) {
+                                                                                                           
+                                                                                                           if ($option['id_color'] == $color['id']) {
+                                                                                                                echo 'checked';
+                                                                                                                break;
+                                                                                                            }
+
+                                                                                                } ?> type="checkbox" name="color[]" id="<?= $color['color'] ?>" value="<?= $color['id'] ?>">
                                                         <label for="<?= $color['color'] ?>" class="form-label"><?= $color['color'] ?></label>
 
 
@@ -116,7 +123,12 @@
                                                 foreach ($sizes as $size) {
                                                 ?>
                                                     <div class="mb-3">
-                                                        <input class="form-check-input mt-0" type="checkbox" name="size[]" id="<?= $size['size'] ?>" value="<?= $size['id'] ?>">
+                                                        <input class="form-check-input mt-0" <?php foreach ($options as $option) {
+                                                                                                    if ($option['id_size'] == $size['id']) {
+                                                                                                        echo 'checked';
+                                                                                                        break;
+                                                                                                    }
+                                                                                                } ?> type="checkbox" name="size[]" id="<?= $size['size'] ?>" value="<?= $size['id'] ?>">
                                                         <label for="<?= $size['size'] ?>" class="form-label"><?= $size['size'] ?></label>
 
 

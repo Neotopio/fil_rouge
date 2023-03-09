@@ -10,3 +10,4 @@ function size()
     $sizes = $query->fetchAll(PDO::FETCH_ASSOC);
     return $sizes;
 }
+

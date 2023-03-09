@@ -16,5 +16,8 @@ function updateProductsVue($id) {
     $colors=color();
     $products=productsVue($id);
     $photos=photoVue($id);
+    $options=optionChecked($id);
+   
+    
     require('template/updateProducts.php');
 }

@@ -24,6 +24,7 @@ if ((isset($_POST['price']) || !empty($_POST['price']))
     if ($_FILES['pictures']['name'][0] !== '') {
 
         adPicturesProducts();
+        header('location:../admin.php?page=prodcuts');
     } else {
         header('location:../admin.php?page=products');
     }

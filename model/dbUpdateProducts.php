@@ -4,7 +4,7 @@ require_once('../database.php');
 
 
 
-function updateProducts($id,$price, $name, $description, $enable, $sousCat)
+function updateProducts($id, $price, $name, $description, $enable, $sousCat)
 {
     $db = dbconnect();
     $ident_time = time();
@@ -25,15 +25,48 @@ function updateProducts($id,$price, $name, $description, $enable, $sousCat)
 function updateOptions($id)
 {
     $db = dbconnect();
+    $idProducts = $id;
+    $query = $db->prepare('SELECT id_size, id_color FROM options WHERE id_product = :id_product');
+    $query->bindValue(':id_product', $idProducts, PDO::PARAM_INT);
+    $query->execute();
+    $currentOptions = $query->fetchAll(PDO::FETCH_ASSOC);
 
+    $selectedOptions = array();
     foreach ($_POST['color'] as $color) {
         foreach ($_POST['size'] as $size) {
-            $insert = 'UPDATE options SET id_product=:id,id_color=:id_color,id_size=:id_size  WHERE id_product=:id  ';
-            $query = $db->prepare($insert);
-            $query->bindValue(':id', $id, PDO::PARAM_INT);
-            $query->bindValue(':id_size', $size, PDO::PARAM_INT);
-            $query->bindValue(':id_color', $color, PDO::PARAM_INT);
-            $query->execute();
+            $selectedOptions[] = array('id_size' => $size, 'id_color' => $color);
         }
+    }
+
+    $optionsToDelete = array();
+    foreach ($currentOptions as $option) {
+        if (!in_array($option, $selectedOptions)) {
+            $optionsToDelete[] = $option;
+        }
+    }
+
+    foreach ($optionsToDelete as $option) {
+        $delete = 'DELETE FROM options WHERE id_product = :id_product AND id_size = :id_size AND id_color = :id_color';
+        $query = $db->prepare($delete);
+        $query->bindValue(':id_product', $idProducts, PDO::PARAM_INT);
+        $query->bindValue(':id_size', $option['id_size'], PDO::PARAM_INT);
+        $query->bindValue(':id_color', $option['id_color'], PDO::PARAM_INT);
+        $query->execute();
+    }
+
+    $optionsToAdd = array();
+    foreach ($selectedOptions as $option) {
+        if (!in_array($option, $currentOptions)) {
+            $optionsToAdd[] = $option;
+        }
+    }
+
+    foreach ($optionsToAdd as $option) {
+        $insert = 'INSERT INTO options(id_product,id_size, id_color) VALUES (:id_products,:id_size, :id_color)';
+        $query = $db->prepare($insert);
+        $query->bindValue(':id_products', $idProducts, PDO::PARAM_INT);
+        $query->bindValue(':id_size', $option['id_size'], PDO::PARAM_INT);
+        $query->bindValue(':id_color', $option['id_color'], PDO::PARAM_INT);
+        $query->execute();
     }
 }
