@@ -1,5 +1,8 @@
-<h2>Créer votre compte personnel EMP</h2>
+
+<?php ob_start(); ?>
 <div class="container">
+<h2>Créer votre compte personnel EMP</h2>
+
     <form action="">
         <div class="row mt-5">
         
@@ -18,3 +21,7 @@
         <button type="submit" class="btn btn-primary mt-5 mb-5">Enregistrer</button>
     </form>
 </div>
+
+<?php $content = ob_get_clean(); ?>
+
+<?php require('layout.php') ?>

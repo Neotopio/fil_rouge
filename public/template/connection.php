@@ -1,3 +1,6 @@
+<?php ob_start(); ?>
+
+
 <div class="container">
     <div class="row mb-5 mt-2">
         <div class="col border">
@@ -18,7 +21,7 @@
             <div class="row mt-2">
 
                 <h2>Nouveau client chez EMP ?</h2>
-                <div class="col-lg-4 mt-5 bg-black "><a class="text-white " href="">Créer un compte</a></div>
+                <a class="text-white " href="index.php?action=createAccount"><div class="col-lg-4 mt-5 bg-black ">Créer un compte</a></div>
                 <div class="col-lg-8 mt-5"></div>
             </div>
             <div class="row mt-5 d-flex">
@@ -34,3 +37,7 @@
         </div>
     </div>
 </div>
+
+<?php $content = ob_get_clean(); ?>
+
+<?php require('layout.php') ?>

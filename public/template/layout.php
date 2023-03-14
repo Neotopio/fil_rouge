@@ -12,6 +12,8 @@
 </head>
 
 <body>
+
+
     <header>
         <div class="container-fluide">
             <div class="row bg-black text-white justify-content-end">
@@ -19,10 +21,10 @@
                 <div class="col-lg-2"></div>
                 <div class="col-lg-1"></div>
                 <div class="col-lg-2">
-                    <img src="images/logo.svg" class="img-fluid logo" alt="">
+                 <a href="index.php">  <img src="images/logo.svg" class="img-fluid logo" alt=""></a> 
                 </div>
                 <div class="col-lg-3"></div>
-                <div class="col-lg-2 justify-content-end"><a href="" class="text-white"><i class="bi bi-person">Se connecter</i></a>
+                <div class="col-lg-2 justify-content-end"><a href="index.php?action=connection" class="text-white"><i class="bi bi-person">Se connecter</i></a>
                     <a href="" class="text-white"><i class="bi bi-heart"></i></a>
                     <a href="" class="text-white"><i class="bi bi-cart"></i></a>
                 </div>
