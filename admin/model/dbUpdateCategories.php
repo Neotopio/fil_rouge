@@ -6,7 +6,7 @@ function updateCategories($a, $b, $c)
     $nom = strip_tags($a);
     $enable = strip_tags($b);
     $id = $c;
-    $query = 'UPDATE categories SET id=:id , name = :nom, is_enable = :is_enable WHERE id
+    $query = 'UPDATE categories SET id=:id , names = :nom, is_enable = :is_enable WHERE id
     = :id';
     $req = $db->prepare($query);
     $req->bindValue(':id', $id, PDO::PARAM_INT);

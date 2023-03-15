@@ -18,7 +18,7 @@
                     foreach ($categories as $categorie) {
                     ?>
                         <tr>
-                            <td><?= $categorie['name'] ?></td>
+                            <td><?= $categorie['names'] ?></td>
 
                             <td class="action">
                                 <a href="admin.php?page=updateCategories&id=<?php echo $categorie['id'] ?>"> <button class="btn btn-primary" type="submit"> Modifier</button></a>

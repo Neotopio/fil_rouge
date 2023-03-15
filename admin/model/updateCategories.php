@@ -16,7 +16,7 @@ function categoriesVue($id)
     $noms = $nomsStatement->fetchAll();
 
     foreach ($noms as $nom) {
-        $nomTitre = $nom['name'];
+        $nomTitre = $nom['names'];
     }
     return $nomTitre;
 }
