@@ -2,7 +2,7 @@
 <div class="container">
     <h2>Créer votre compte personnel EMP</h2>
 
-    <form action="controllers/createClient.php" method="post" >
+    <form action="../controllers/createClient.php" method="post" >
         <div class="row mt-5">
 
             <div class="col-lg-6">

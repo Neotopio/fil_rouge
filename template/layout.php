@@ -1,3 +1,7 @@
+<?php require_once('../model/categories.php');
+ $categories=categoriesVue();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,6 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
@@ -21,7 +26,7 @@
                 <div class="col-lg-2"></div>
                 <div class="col-lg-1"></div>
                 <div class="col-lg-2">
-                 <a href="index.php">  <img src="images/logo.svg" class="img-fluid logo" alt=""></a> 
+                 <a href="index.php">  <img src="images/logo.svg" class="img-fluid logo " alt=""></a> 
                 </div>
                 <div class="col-lg-3"></div>
                 <div class="col-lg-2 justify-content-end"><a href="index.php?action=connection" class="text-white"><i class="bi bi-person">Se connecter</i></a>
@@ -40,48 +45,21 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <?php //foreach($categories as $categorie) { 
-                        var_dump($categories);?>
+                    <?php foreach($categories as $category => $products) { ?>
+                     
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <?php //echo $categorie['name'];?>
+                            <?php echo $category?>
                         </a>
-                        
+
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <?php foreach($products as $cat) {?>
+                            <li><a class="dropdown-item" href="index.php?action=products&id=<?=$cat['id']?>"><?php echo $cat['name'];?></a></li>
+                          <?php } ?>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Homme
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Enfants
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
+                    <?php }?>
+     
 
                 </ul>
                 <form class="d-flex" role="search">

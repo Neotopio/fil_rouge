@@ -11,7 +11,7 @@ if ((isset($_POST['name']) || !empty($_POST['name']))
     || (isset($_POST['password']) || !empty($_POST['password']))
 ) {
     adClient();
-    header('location:../index.php?action=connection');
+    header('location:../public/index.php?action=connection');
 } else {
-    header('location:../index.php?action=createAccount');
+    header('location:../public/index.php?action=createAccount');
 }
