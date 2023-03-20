@@ -21,9 +21,9 @@ function deletePictures($idPicture)
     foreach ($dels as $val) {
         foreach ($val as $del) {
           
-            $pict = 'SELECT * FROM pictures WHERE id=' . $del . '';
+            $pict = 'SELECT * FROM pictures WHERE id=:id';
             $picture = $db->prepare($pict);
-            // $picture->bindValue(':id', $del, PDO::PARAM_INT);
+            $picture->bindValue(':id', $del, PDO::PARAM_INT);
             $picture->execute();
 
 

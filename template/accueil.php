@@ -1,9 +1,9 @@
 <?php ob_start(); ?>
 
-<div class="container mb-5 ">
+<div class="container mt-5 ">
     <div class="row mt-5">
-        <div class="col-12">
-            <h2 class="mb-5 text-center">Qui somme nous</h2>
+        <div class="col-12 mt-5">
+            <h2 class="mb-5 text-center mt-5">Qui somme nous</h2>
             Tout pour les fans de rock, de métal, de punk ou de gothique.
             Avec sa large gamme de T-shirts imprimés, T-shirts en métal, T-shirts rock,
             sweatshirts, chaussures et accessoires de mode ou cadeaux, la boutique de métal EMP
@@ -21,10 +21,10 @@
         <h2 class="mb-5 text-center">Les nouveautées</h2>
         <?php foreach ($products as $product) { ?>
 
-            <div class="col-3 mt-4"> 
+            <div class="col-lg-3 mt-4 col-sm-12 col-md-6"> 
                 <a href="">
                     <div class="card" style="height: 35rem;">
-                        <img src="../admin/<?= $product['chemin'] ?>" class="card-img-top" alt="" style="height: 20rem;"> </a>
+                        <img src="../admin/<?= $product['chemin'] ?>" class="card-img-top img-fluid" alt="" style="height: 20rem;"> </a>
                         <div class="card-body">
                             <h5 class="card-title"><?= $product['product_name'] ?></h5>
                             <p class="card-text"><?= $product['description'] ?></p>

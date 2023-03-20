@@ -1,8 +1,8 @@
 <?php ob_start(); ?>
-<div class="container">
-    <h2>Créer votre compte personnel EMP</h2>
+<div class="container mt-5">
+    <h2 class="mt-5">Créer votre compte personnel EMP</h2>
 
-    <form action="../controllers/createClient.php" method="post" >
+    <form action="../controllers/createClient.php" method="post">
         <div class="row mt-5">
 
             <div class="col-lg-6">
@@ -19,17 +19,12 @@
             <div class="col-lg-2">
                 <input type="number" class="form-control" name="cp" placeholder="Votre code postal">
             </div>
-
             <div class="col-lg-3">
                 <input type="text" class="form-control" name="city" placeholder="Votre ville">
             </div>
         </div>
-
-
         <div class="row mt-5">
             <div class="col-lg-6 "><input class="form-control" type="email" placeholder="E-mail" name="email"></div>
-           
-      
             <div class="col-lg-6"><input class="form-control" type="password" name="password" placeholder="Votre mot de passe"></div>
         </div>
         <button type="submit" class="btn btn-primary mt-5 mb-5">Enregistrer</button>

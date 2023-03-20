@@ -23,7 +23,7 @@ function adProduct($price, $name, $description, $enable, $sousCat)
 
 function adPicturesProducts()
 {
-    $files = reArrayImages($_FILES['pictures']);
+   $files = reArrayImages($_FILES['pictures']);
 
     $db = dbconnect();
     foreach ($files as $file) {
