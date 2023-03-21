@@ -1,4 +1,6 @@
-<?php require_once('../model/categories.php');
+<?php 
+
+require_once('../model/categories.php');
 $categories = categoriesVue();
 ?>
 
@@ -215,5 +217,28 @@ $categories = categoriesVue();
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
 
+    function updateCartCount() {
+ 
+  $.ajax({
+    url: "countCarts.php",
+    type: "GET",
+    data: { action: "get_total_quantity" },
+    dataType: "json",
+    success: function(response) {
+    
+      const cartBadge = document.getElementById("compteurPanier");
+      cartBadge.innerHTML = response.totalQuantity;
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+      console.log("Une erreur est survenue : " + errorThrown);
+    }
+  });
+}
+window.onload = function() {
+      updateCartCount();
+    };
+</script>
 </html>

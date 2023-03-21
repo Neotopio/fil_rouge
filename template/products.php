@@ -6,7 +6,7 @@
         <?php foreach ($products as $product) { ?>
 
             <div class="col-3 mt-4">
-                <a href="">
+                <a href="index.php?action=productsDetail&id=<?= $product['id'] ?>&previous=<?=$_GET['id'];?>">
                     <div class="card" style="height: 46rem;">
                         <img src="../admin/<?= $product['chemin'] ?>" class="card-img-top img-fluid" alt="" style="height:40rem ;">
                 </a>

@@ -22,7 +22,7 @@
         <?php foreach ($products as $product) { ?>
 
             <div class="col-lg-3 mt-4 col-sm-12 col-md-6"> 
-                <a href="">
+                <a href="index.php?action=productsDetail&id=<?=$product['id'];?>&previous=<?=$product['id_sous_categories'];?>">
                     <div class="card" style="height: 35rem;">
                         <img src="../admin/<?= $product['chemin'] ?>" class="card-img-top img-fluid" alt="" style="height: 20rem;"> </a>
                         <div class="card-body">
