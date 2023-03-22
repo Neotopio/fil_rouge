@@ -12,10 +12,10 @@ $carts = $query->fetchAll(PDO::FETCH_ASSOC);
 foreach($carts as $cart){
     $resultat+=$cart['quantity'];
 }
-var_dump($resultat);
+
 if($resultat>0){
-   // $response = array("totalQuantity" => $resultat);
-    echo  json_encode($resultat);
+    $response = array("totalQuantity" => $resultat);
+    echo  json_encode($response);
 
 } else {
 

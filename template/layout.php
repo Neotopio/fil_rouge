@@ -14,10 +14,31 @@ $categories = categoriesVue();
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>Acceuil</title>
 </head>
+<script>
 
+    function updateCartCount() {
+ 
+  $.ajax({
+    url: "countCarts.php",
+    type: "GET",
+    data: { action: "get_total_quantity" },
+    dataType: "json",
+    success: function(response) {
+    
+      const cartBadge = document.getElementById("compteurPanier");
+      cartBadge.innerHTML = response.totalQuantity;
+    },
+   
+  });
+}
+window.onload = function() {
+      updateCartCount();
+    };
+</script>
 
 
 <style>
@@ -42,13 +63,14 @@ $categories = categoriesVue();
                 <div class="col-lg-3"></div>
                 <div class="col-lg-2 justify-content-end"><a href="index.php?action=connection" class="text-white"><i class="bi bi-person">Se connecter</i></a>
                     <a href="" class="text-white"><i class="bi bi-heart"></i></a>
+                    <a href="index.php?action=carts">
                     <button type="button" class="btn btn-dark position-relative">
   Panier
   <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="compteurPanier">
     0
     <span class="visually-hidden">unread messages</span>
   </span>
-</button>
+</button></a>
                 </div>
             </div>
         </div>
@@ -217,28 +239,6 @@ $categories = categoriesVue();
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script>
 
-    function updateCartCount() {
- 
-  $.ajax({
-    url: "countCarts.php",
-    type: "GET",
-    data: { action: "get_total_quantity" },
-    dataType: "json",
-    success: function(response) {
-    
-      const cartBadge = document.getElementById("compteurPanier");
-      cartBadge.innerHTML = response.totalQuantity;
-    },
-    error: function(jqXHR, textStatus, errorThrown) {
-      console.log("Une erreur est survenue : " + errorThrown);
-    }
-  });
-}
-window.onload = function() {
-      updateCartCount();
-    };
-</script>
+
 </html>

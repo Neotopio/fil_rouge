@@ -11,7 +11,7 @@ function adCarts(){
     $size=strip_tags($_POST['size']);
     $color=strip_tags($_POST['color']);
   
-    $query = 'INSERT INTO carts(ident_clients,product,price,quantity,size,color) VALUES (:ident_clients,:product,:price,:quantity,:size,:color)';
+    $query = 'INSERT INTO carts(ident_clients,id_product,price,quantity,size,color) VALUES (:ident_clients,:product,:price,:quantity,:size,:color)';
     $req = $db->prepare($query);
     $req->bindValue(':ident_clients', $ident_clients, PDO::PARAM_INT);
     $req->bindValue(':product', $product, PDO::PARAM_INT);

@@ -18,7 +18,10 @@ if (isset($_GET['action'])) {
     } elseif ($page == 'productsDetail') {
         require_once('../controllers/productsDetail.php');
         productsDetailVue($_GET['id']);
-    } else {
+    } elseif ($page == 'carts') {
+        require_once('../controllers/carts.php');
+        carts();
+    }else {
         require_once('../controllers/accueil.php');
         accueil();
     }
