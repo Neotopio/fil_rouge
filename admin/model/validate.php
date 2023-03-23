@@ -13,7 +13,7 @@ function clearCart()
   $carts = $cart->fetchAll(PDO::FETCH_ASSOC);
   foreach ($carts as $cart) {
     if ($cart['time'] + 86400 < $time) {
-      $query = 'DELETE FROM cart WHERE id=:id';
+      $query = 'DELETE FROM carts WHERE id=:id AND id_client=NULL' ;
       $req = $db->prepare($query);
       $req->bindValue(':id', $cart['id'], PDO::PARAM_STR);
       $req->execute();
@@ -22,13 +22,6 @@ function clearCart()
 }
 
 $db = dbconnect();
-
-
-
-
-
-
-
 
 
 $username = ($_POST["nom"]);
