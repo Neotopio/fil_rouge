@@ -4,12 +4,12 @@
 <div class="container mt-5">
     <div class="row mb-5 mt-5">
         <div class="col border mt-5">
-            <form action="">
+            <form action="../model/validateUsers.php" method="post">
                 <div class="row mt-5 ">
 
                     <h2><i class="bi bi-person">Se connecter</i></h2>
-                    <div class="col-lg-8 mt-5"><input class="form-control" type="email" placeholder="Votre adresse-mail" name="connexionEmail"></div>
-                    <div class="col-lg-4 mt-5"><input class="form-control" type="password" placeholder="Votre mot de passe" name="connexionPassword"></div>
+                    <div class="col-lg-8 mt-5"><input class="form-control" type="email" placeholder="Votre adresse-mail" name="email"></div>
+                    <div class="col-lg-4 mt-5"><input class="form-control" type="password" placeholder="Votre mot de passe" name="password"></div>
                 </div>
                 <div class="row mt-5">
                     <div class="col-lg-6"><button type="submit" class="btn btn-success">Se connecter</button></div>

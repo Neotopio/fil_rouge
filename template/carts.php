@@ -1,4 +1,13 @@
-<?php ob_start(); ?>
+<?php ob_start(); 
+if (isset($_SESSION['success_message'])) {
+    echo "<div class='alert alert-success'>" . $_SESSION['success_message'] . "</div>";
+    unset($_SESSION['success_message']);
+}
+elseif (isset($_SESSION['echec_message'])) {
+    echo "<div class='alert alert-warning'>" . $_SESSION['echec_message'] . "</div>";
+    unset($_SESSION['echec_message']);
+}
+?>
 <div class="container mb-5">
     <h2>Panier</h2>
     <div class="table-responsive">
@@ -14,7 +23,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($carts as $cart) { ?>
+                <?php foreach ($carts as $cart)  { ?>
                     <tr data-id="<?= $cart['id_product']; ?>">
                         <td><?= $cart['name']; ?></td>
                         <td><?= $cart['size']; ?></td>
@@ -34,6 +43,9 @@
                 </tr>
             </tbody>
         </table>
+        <a href="../controllers/createOrders.php">
+            <button type="submit" class="btn btn-primary">Valider le devis</button>
+        </a>
     </div>
 </div>
 <script>

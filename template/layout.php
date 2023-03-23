@@ -65,10 +65,10 @@ window.onload = function() {
                     <a href="" class="text-white"><i class="bi bi-heart"></i></a>
                     <a href="index.php?action=carts">
                     <button type="button" class="btn btn-dark position-relative">
-  Panier
+                    <i class="bi bi-cart3"></i>
   <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="compteurPanier">
     0
-    <span class="visually-hidden">unread messages</span>
+    <span class="visually-hidden"></span>
   </span>
 </button></a>
                 </div>
