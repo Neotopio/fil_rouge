@@ -1,6 +1,6 @@
 <?php ob_start(); ?>
 
-<div class="container mt-5 ">
+<div class="container mt-5 mb-5 ">
     <div class="row mt-5">
         <div class="col-12 mt-5">
             <h2 class="mb-5 text-center mt-5">Qui somme nous</h2>

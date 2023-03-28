@@ -7,7 +7,7 @@ function products($id)
             FROM products 
             INNER JOIN products_pictures ON products.id =products_pictures.id_product
             INNER JOIN pictures ON products_pictures.id_picture=pictures.id  
-            WHERE products.id_sous_categories=:id
+            WHERE products.id_sous_categories=:id AND products.is_enable=1
             GROUP BY products.name
             ORDER BY products.id 
             ';

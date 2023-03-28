@@ -54,15 +54,13 @@ window.onload = function() {
     <header class=" mb-5">
         <div class="container-fluid ">
             <div class="row bg-black text-white justify-content-end align-items-center">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-2"></div>
-                <div class="col-lg-1"></div>
+               
                 <div class="col-lg-2">
                     <a href="index.php"> <img src="../images/logo.svg" class="img-fluid logo " alt=""></a>
                 </div>
                 <div class="col-lg-3"></div>
                 <div class="col-lg-2 justify-content-end"><a href="index.php?action=connection" class="text-white"><i class="bi bi-person">Se connecter</i></a>
-                    <a href="" class="text-white"><i class="bi bi-heart"></i></a>
+                    
                     <a href="index.php?action=carts">
                     <button type="button" class="btn btn-dark position-relative">
                     <i class="bi bi-cart3"></i>
@@ -98,8 +96,6 @@ window.onload = function() {
                                 </ul>
                             </li>
                         <?php } ?>
-
-
                     </ul>
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search">

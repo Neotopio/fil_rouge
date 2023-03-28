@@ -2,6 +2,8 @@
 session_start();
 require_once('../model/cartsVue.php');
 require_once('../model/createOrders.php');
+require_once('../model/email.php');
+require_once('../TCPDF-main/tcpdf.php');
 
 if (isset($_SESSION['email'])) {
 

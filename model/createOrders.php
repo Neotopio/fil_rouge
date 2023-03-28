@@ -45,7 +45,10 @@ function createOrders()
         $orders->bindValue(':size', $cart['size'], PDO::PARAM_STR);
         $orders->bindValue(':color', $cart['color'], PDO::PARAM_STR);
         $orders->execute();
-       
-        
     }
+    $resultat=0;
+    foreach($carts as $cart){
+        $resultat+=$cart['price']*$cart['quantity'];
+    }
+    sendMail($carts,$resultat);
 }

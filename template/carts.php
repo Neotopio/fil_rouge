@@ -1,9 +1,8 @@
-<?php ob_start(); 
+<?php ob_start();
 if (isset($_SESSION['success_message'])) {
     echo "<div class='alert alert-success'>" . $_SESSION['success_message'] . "</div>";
     unset($_SESSION['success_message']);
-}
-elseif (isset($_SESSION['echec_message'])) {
+} elseif (isset($_SESSION['echec_message'])) {
     echo "<div class='alert alert-warning'>" . $_SESSION['echec_message'] . "</div>";
     unset($_SESSION['echec_message']);
 }
@@ -23,7 +22,7 @@ elseif (isset($_SESSION['echec_message'])) {
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($carts as $cart)  { ?>
+                <?php foreach ($carts as $cart) { ?>
                     <tr data-id="<?= $cart['id_product']; ?>">
                         <td><?= $cart['name']; ?></td>
                         <td><?= $cart['size']; ?></td>

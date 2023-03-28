@@ -4,7 +4,7 @@ require_once('../database.php');
 function categoriesVue()
 {
     $db = dbconnect();
-    $sql = 'SELECT *  FROM categories INNER JOIN sub_categories ON id_categories= categories.id  ';
+    $sql = 'SELECT *  FROM categories INNER JOIN sub_categories ON id_categories= categories.id WHERE categories.is_enable=1 ';
     $query = $db->prepare($sql);
     $query->execute();
     $categories = $query->fetchAll(PDO::FETCH_ASSOC);
