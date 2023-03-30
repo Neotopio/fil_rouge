@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require_once('../model/categories.php');
 $categories = categoriesVue();
@@ -16,27 +16,28 @@ $categories = categoriesVue();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" href="style.css">
-    <title>Acceuil</title>
+    <title>EMP</title>
 </head>
 <script>
-
     function updateCartCount() {
- 
-  $.ajax({
-    url: "countCarts.php",
-    type: "GET",
-    data: { action: "get_total_quantity" },
-    dataType: "json",
-    success: function(response) {
-    
-      const cartBadge = document.getElementById("compteurPanier");
-      cartBadge.innerHTML = response.totalQuantity;
-    },
-   
-  });
-}
-window.onload = function() {
-      updateCartCount();
+
+        $.ajax({
+            url: "countCarts.php",
+            type: "GET",
+            data: {
+                action: "get_total_quantity"
+            },
+            dataType: "json",
+            success: function(response) {
+
+                const cartBadge = document.getElementById("compteurPanier");
+                cartBadge.innerHTML = response.totalQuantity;
+            },
+
+        });
+    }
+    window.onload = function() {
+        updateCartCount();
     };
 </script>
 
@@ -54,21 +55,21 @@ window.onload = function() {
     <header class=" mb-5">
         <div class="container-fluid ">
             <div class="row bg-black text-white justify-content-end align-items-center">
-               
+
                 <div class="col-lg-2">
                     <a href="index.php"> <img src="../images/logo.svg" class="img-fluid logo " alt=""></a>
                 </div>
                 <div class="col-lg-3"></div>
                 <div class="col-lg-2 justify-content-end"><a href="index.php?action=connection" class="text-white"><i class="bi bi-person">Se connecter</i></a>
-                    
+
                     <a href="index.php?action=carts">
-                    <button type="button" class="btn btn-dark position-relative">
-                    <i class="bi bi-cart3"></i>
-  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="compteurPanier">
-    0
-    <span class="visually-hidden"></span>
-  </span>
-</button></a>
+                        <button type="button" class="btn btn-dark position-relative">
+                            <i class="bi bi-cart3"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="compteurPanier">
+                                0
+                                <span class="visually-hidden"></span>
+                            </span>
+                        </button></a>
                 </div>
             </div>
         </div>
@@ -122,7 +123,7 @@ window.onload = function() {
                         Notre équipe SAV est disponible de 10:00 à 18:30.
                     </p>
                     <div class=" mb-2 mt-3 d-flex">
-                        <a href="" class="  w-auto">
+                        <a href="index.php?action=contact" class="  w-auto">
                             <span class="  d-flex text-black">Nous contacter !</span>
                         </a>
                     </div>

@@ -36,7 +36,7 @@
                         <?php
                         foreach ($categories as $categorie) {
                         ?>
-                            <option value="<?= $categorie['id'] ?>"><?= $categorie['name'] ?></option>
+                            <option value="<?= $categorie['id'] ?>"><?= $categorie['names'] ?></option>
                         <?php
                         }
                         ?>

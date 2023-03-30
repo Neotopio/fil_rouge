@@ -21,7 +21,10 @@ if (isset($_GET['action'])) {
     } elseif ($page == 'carts') {
         require_once('../controllers/carts.php');
         carts();
-    }else {
+    } elseif ($page == 'contact') {
+        require_once('../controllers/contact.php');
+        contact();
+    } else {
         require_once('../controllers/accueil.php');
         accueil();
     }
