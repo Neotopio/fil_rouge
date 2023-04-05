@@ -1,8 +1,5 @@
 <?php ob_start(); ?>
 
-
-
-
 <div class="container ">
     <div class="row">
         <section class="col-12">

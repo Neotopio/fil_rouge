@@ -69,12 +69,11 @@ $categories = categoriesVue();
                                 0
                                 <span class="visually-hidden"></span>
                             </span>
-                        </button></a>
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>
-
-
         <nav class="navbar navbar-expand-lg bg-body-tertiary ">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#"></a>

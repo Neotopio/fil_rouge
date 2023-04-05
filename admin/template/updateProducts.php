@@ -102,12 +102,11 @@
                                                 ?>
                                                     <div class="mb-3">
                                                         <input class="form-check-input mt-0" <?php foreach ($options as $option) {
-                                                                                                           
-                                                                                                           if ($option['id_color'] == $color['id']) {
-                                                                                                                echo 'checked';
-                                                                                                                break;
-                                                                                                            }
 
+                                                                                                    if ($option['id_color'] == $color['id']) {
+                                                                                                        echo 'checked';
+                                                                                                        break;
+                                                                                                    }
                                                                                                 } ?> type="checkbox" name="color[]" id="<?= $color['color'] ?>" value="<?= $color['id'] ?>">
                                                         <label for="<?= $color['color'] ?>" class="form-label"><?= $color['color'] ?></label>
 
