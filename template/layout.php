@@ -60,19 +60,24 @@ $categories = categoriesVue();
                     <a href="index.php"> <img src="../images/logo.svg" class="img-fluid logo " alt=""></a>
                 </div>
                 <div class="col-lg-3"></div>
-                <div class="col-lg-2 justify-content-end"><a href="index.php?action=connection" class="text-white"><i class="bi bi-person">Se connecter</i></a>
+                <?php if (!isset($_SESSION['email'])) {
+                    echo ' <div class="col-lg-2 justify-content-end"><a href="index.php?action=connection" class="text-white"><i class="bi bi-person">Se connecter</i></a>';
+                } else {
+                    echo  '<div class="col-lg-2 justify-content-end"><a href="index.php?action=profile" class="text-white"><i class="bi bi-person">Votre profil</i></a>';
+                }
+                ?>
 
-                    <a href="index.php?action=carts">
-                        <button type="button" class="btn btn-dark position-relative">
-                            <i class="bi bi-cart3"></i>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="compteurPanier">
-                                0
-                                <span class="visually-hidden"></span>
-                            </span>
-                        </button>
-                    </a>
-                </div>
+                <a href="index.php?action=carts">
+                    <button type="button" class="btn btn-dark position-relative">
+                        <i class="bi bi-cart3"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="compteurPanier">
+                            0
+                            <span class="visually-hidden"></span>
+                        </span>
+                    </button>
+                </a>
             </div>
+        </div>
         </div>
         <nav class="navbar navbar-expand-lg bg-body-tertiary ">
             <div class="container-fluid">
@@ -97,8 +102,8 @@ $categories = categoriesVue();
                             </li>
                         <?php } ?>
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search">
+                    <form method="post" action="index.php?action=products" class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search" name="search">
                         <button class="btn btn-outline-success" type="submit">Rechercher</button>
                     </form>
                 </div>

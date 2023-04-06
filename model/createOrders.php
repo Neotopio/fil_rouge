@@ -17,8 +17,6 @@ function createOrders()
     $first_name = $clients['0']['first_name'];
     $adresse = $clients['0']['adress'] . ' ' . $clients['0']['cp'] . ' ' . $clients['0']['city'];
 
-
-
     $query = 'UPDATE carts SET id_client=:id_client,ident_orders=:ident_orders WHERE ident_clients=:ident_clients ';
     $req = $db->prepare($query);
     $req->bindValue(':ident_clients', $_SESSION['identClient'], PDO::PARAM_INT);

@@ -14,7 +14,11 @@ if (isset($_GET['action'])) {
         createAccountVue();
     } elseif ($page == 'products') {
         require_once('../controllers/products.php');
-        productsVue($_GET['id']);
+        if (isset($_POST['search'])) {
+            productsVueSearch($_POST['search']);
+        } else {
+            productsVue($_GET['id']);
+        }
     } elseif ($page == 'productsDetail') {
         require_once('../controllers/productsDetail.php');
         productsDetailVue($_GET['id']);
@@ -24,6 +28,9 @@ if (isset($_GET['action'])) {
     } elseif ($page == 'contact') {
         require_once('../controllers/contact.php');
         contact();
+    } elseif ($page == 'profile') {
+        require_once('../controllers/updateProfile.php');
+        profile();
     } else {
         require_once('../controllers/accueil.php');
         accueil();
