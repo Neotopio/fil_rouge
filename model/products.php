@@ -14,7 +14,6 @@ function products($id)
     $query = $db->prepare($sql);
     $query->bindValue(':id', $id, PDO::PARAM_INT);
     $query->execute();
-
     $product = $query->fetchAll(PDO::FETCH_ASSOC);
     return  $product;
 }
@@ -34,8 +33,6 @@ function productsSearch($search)
     $query = $db->prepare($sql);
     $query->bindValue(':search', $search, PDO::PARAM_STR);
     $query->execute();
-
-    $product = $query->fetchAll(PDO::FETCH_ASSOC);
-   
+    $product = $query->fetchAll(PDO::FETCH_ASSOC);  
     return  $product;
 }

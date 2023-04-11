@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once('../model/addCarts.php');
-if((isset($_POST['previous'])){
+
 
 if ((isset($_POST['id']) || !empty($_POST['id']))
     || (isset($_POST['price']) || !empty($_POST['price']))
@@ -12,13 +12,10 @@ if ((isset($_POST['id']) || !empty($_POST['id']))
 
 ) {
     adCarts();
-    header('location:../public/index.php?action=products&id='.$_POST['previous']);
-
+    if (($_POST['previous'] == " ")) {
+        header('location:../public/index.php?action=acceuil');
+    }
+ else {
+    header('location:../public/index.php?action=products&id=' . $_POST['previous']);
 }
-else{
-   header('location:../public/index.php?action=productsDetail&id='.$_POST['id'].'&previous='.$_POST['previous']);
-
-}}
-else {
-    header('location:../public/index.php?action=products');
 }

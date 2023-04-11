@@ -9,7 +9,7 @@ if (isset($_SESSION['success_message'])) {
 ?>
 <div class="container mb-5">
     <h2>Panier</h2>
-    <div class="table-responsive">
+    <div class="">
         <table class="table">
             <thead>
                 <tr>
@@ -33,7 +33,8 @@ if (isset($_SESSION['success_message'])) {
                             <button class="btn btn-sm btn-secondary minus-btn">-</button>
                             <span class="quantity"><?= $cart['quantity']; ?></span>
                             <button class="btn btn-sm btn-secondary plus-btn">+</button>
-                         </td>  <td> <form action="../model/deleteProductCart.php" method="get"><input type="hidden" name='id_carts' value="<?php echo $cart['id_carts']; ?>"><button class="btn btn-sm btn-danger plus-btn" type="submit"><i class="bi bi-trash3"></i></button></form>
+                         </td>  
+                         <td> <form action="../model/deleteProductCart.php" method="get"><input type="hidden" name='id_carts' value="<?php echo $cart['id_carts']; ?>"><button class="btn btn-sm btn-danger plus-btn" type="submit"><i class="bi bi-trash3"></i></button></form>
                         </td>
                     </tr>
                 <?php } ?>

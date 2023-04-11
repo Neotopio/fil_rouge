@@ -39,7 +39,9 @@
                     <p><?= $product['description']; ?></p>
                     <p>Prix : <?= $product['price']; ?> euro/TTC</p>
                     <input type="hidden" name="price" value="<?= $product['price']; ?>">
-                    <input type="hidden" name="previous" value="<?php if(isset( $_GET['previous'])){echo $_GET['previous'] ;};?> ">
+                    <input type="hidden" name="previous" value="<?php if (isset($_GET['previous'])) {
+                                                                    echo $_GET['previous'];
+                                                                }; ?> ">
                 <?php } ?>
                 <div class="form-group">
 
@@ -81,7 +83,7 @@
                     <label for="quantite">Quantité :</label>
                     <input type="number" class="form-control" id="quantite" name="quantity" value="1" min="1">
                 </div>
-                <button class="btn btn-primary" >Ajouter au panier</button>
+                <button class="btn btn-primary">Ajouter au panier</button>
                 </div>
 
         </div>

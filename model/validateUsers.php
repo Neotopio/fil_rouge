@@ -5,15 +5,6 @@ require('../database.php');
    
 
   $db=dbconnect();
-
-
-
-   
- 
-  
- 
-
-     
     $email = ($_POST["email"]);
     $password = ($_POST["password"]);
     $stmt = $db->prepare('SELECT * FROM client WHERE email = :email');
