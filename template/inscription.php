@@ -1,10 +1,14 @@
 <?php ob_start(); ?>
+<?php if (isset($_SESSION['echec_message'])) {
+    echo "<div class='alert alert-warning'>" . $_SESSION['echec_message'] . "</div>";
+    unset($_SESSION['echec_message']);}?>
+
+
 <div class="container mt-5">
     <h2 class="mt-5">Créer votre compte personnel EMP</h2>
 
-    <form action="../controllers/createClient.php" method="post">
+    <form action="../controllers/createClient.php" method="post" >
         <div class="row mt-5">
-
             <div class="col-lg-6">
                 <input type="text" name="first_name" class="form-control" placeholder="Prénom">
             </div>
@@ -25,9 +29,10 @@
         </div>
         <div class="row mt-5">
             <div class="col-lg-6 "><input class="form-control" type="email" placeholder="E-mail" name="email"></div>
-            <div class="col-lg-6"><input class="form-control" type="password" name="password" placeholder="Votre mot de passe"></div>
+            <div class="col-lg-3"><input class="form-control" type="password" name="password" placeholder="Votre mot de passe" id="pswd1"></div>
+            <div class="col-lg-3"><input class="form-control" type="password" name="passwordVerify" placeholder="Conformé votre mot de passe" id="pswd2"></div>
         </div>
-        <button type="submit" class="btn btn-primary mt-5 mb-5">Enregistrer</button>
+        <button type="submit"  class="btn btn-primary mt-5 mb-5">Enregistrer</button>
     </form>
 </div>
 

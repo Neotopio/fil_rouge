@@ -49,8 +49,6 @@
                         <div class="mb-3">
                             <input class="form-check-input mt-0" type="checkbox" name="color[]" id="<?= $color['color'] ?>"  value="<?= $color['id'] ?>">
                             <label for="<?= $color['color'] ?>" class="form-label"><?= $color['color'] ?></label>
-
-
                         </div>
                     <?php
                     }

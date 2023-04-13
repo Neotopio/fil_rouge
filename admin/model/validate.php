@@ -11,11 +11,11 @@ function clearCart()
 
   $cart->execute();
   $carts = $cart->fetchAll(PDO::FETCH_ASSOC);
-  foreach ($carts as $cart) {
-    if ($cart['time'] + 86400 < $time) {
-      $query = 'DELETE FROM carts WHERE id=:id AND id_client=NULL' ;
+  foreach ($carts as $car) {
+    if ($car['time'] + 86400 < $time) {
+      $query = 'DELETE FROM carts WHERE id_carts=:id AND id_client IS NULL' ;
       $req = $db->prepare($query);
-      $req->bindValue(':id', $cart['id'], PDO::PARAM_STR);
+      $req->bindValue(':id', $car['id_carts'], PDO::PARAM_STR);
       $req->execute();
     }
   }

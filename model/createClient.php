@@ -2,6 +2,21 @@
 
 require_once('../database.php');
 
+
+function verifyEmail()
+{
+    $db = dbconnect();
+    $verif = 'SELECT * FROM client';
+    $verifEmail = $db->prepare($verif);
+    $verifEmail->execute();
+    $verifEmails = $verifEmail->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($verifEmails as $verify) {
+        if ($_POST['email'] == $verify['email']) {
+            return true;
+        }
+    }
+}
 function adClient()
 {
     $db = dbconnect();

@@ -1,11 +1,11 @@
 <?php
 require_once('../model/mail.php');
 
-if ((isset($_POST['first_name']) || !empty($_POST['first_name']))
-    || (isset($_POST['last_name']) || !empty($_POST['last_name']))
-    || (isset($_POST['tel']) || !empty($_POST['tel']))
-    || (isset($_POST['mail']) || !empty($_POST['mail']))
-    || (isset($_POST['text']) || !empty($_POST['text']))
+if ((isset($_POST['first_name']) && !empty($_POST['first_name']))
+    && (isset($_POST['last_name']) && !empty($_POST['last_name']))
+    && (isset($_POST['tel']) && !empty($_POST['tel']))
+    && (isset($_POST['mail']) && !empty($_POST['mail']))
+    && (isset($_POST['text']) && !empty($_POST['text']))
 ) {
     $a = $_POST['first_name'];
     $b = $_POST['last_name'];

@@ -20,14 +20,14 @@ function updateProfil()
 function updateClient()
 {
     $db = dbconnect();
-    $id=strip_tags($_POST['id']);
+    $id = strip_tags($_POST['id']);
     $name = strip_tags($_POST['name']);
-    $first_name=strip_tags($_POST['first_name']);
-    $email=strip_tags($_POST['email']);
-    $adress=strip_tags($_POST['adress']);
-    $cp=strip_tags($_POST['cp']);
-    $city=strip_tags($_POST['city']);
-    
+    $first_name = strip_tags($_POST['first_name']);
+    $email = strip_tags($_POST['email']);
+    $adress = strip_tags($_POST['adress']);
+    $cp = strip_tags($_POST['cp']);
+    $city = strip_tags($_POST['city']);
+
     $query = 'UPDATE client SET id=:id , name = :name, first_name = :first_name,email=:email,adress=:adress,cp=:cp,city=:city WHERE id
     = :id';
     $req = $db->prepare($query);
