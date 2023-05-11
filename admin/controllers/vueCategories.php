@@ -7,8 +7,8 @@ function vueCategories()
     $categories = categories();
     require('template/categories.php');
 }
-function vueUpdateCategories($id){
-   $nomTitre= categoriesVue($id);
-   require('template/updateCategories.php');
+function vueUpdateCategories($id)
+{
+    $nomTitre = categoriesVue($id);
+    require('template/updateCategories.php');
 }
-
